@@ -10,5 +10,8 @@ class BulletController {
 
   update() {
     this.sprite.body.velocity.y = -this.BULLET_SPEED;
+    if (this.sprite.position.y < 0){
+      this.sprite.destroy();
+    }
   }
 }
