@@ -68,12 +68,12 @@ var create = function(){
       }
     )
   );
-  Nakama.players[0].bullet = new BulletController(Nakama.players[0].x,Nakama.players[0].y,'BulletType1.png',Nakama.players[0].configs);
+  //Nakama.players[0].bullet = new BulletController(Nakama.players[0].x,Nakama.players[0].y,'BulletType1.png',Nakama.players[0].configs);
 }
 
 // update game state each frame
 var update = function(){
-
+  
   //moving background
   Nakama.background.position.y += 5;
   if (Nakama.background.position.y > 0) Nakama.background.position.y -= 960;
