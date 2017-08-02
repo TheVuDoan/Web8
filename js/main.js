@@ -45,10 +45,10 @@ var create = function(){
 
   Nakama.players = [];
   Nakama.players.push(
-    new ShipController(
+    new ShipType1Controller(
       200,
       400,
-      'Spaceship1-Player.png',
+      '-Player',
       {
         up : Phaser.Keyboard.UP,
         down : Phaser.Keyboard.DOWN,
@@ -59,10 +59,10 @@ var create = function(){
     )
   );
   Nakama.players.push(
-    new ShipController(
+    new ShipType1Controller(
       400,
       400,
-      'Spaceship1-Partner.png',
+      '-Partner',
       {
         up : Phaser.Keyboard.W,
         down : Phaser.Keyboard.S,

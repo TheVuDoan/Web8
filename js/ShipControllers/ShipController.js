@@ -8,8 +8,8 @@ class ShipController{
     this.configs.SHIP_SPEED = 500;
 
     this.bullets = [];
-    this.bullets.BULLET_TIME = 300;  //time between shot
-    this.bullets.time = this.bullets.BULLET_TIME; //first shot
+    this.configs.BULLET_TIME = 300;  //time between shot
+    this.bullets.time = this.configs.BULLET_TIME; //first shot
 
     this.sprite.update = this.update.bind(this);
   }
@@ -37,15 +37,14 @@ class ShipController{
 
     //shoot then wait
     if (Nakama.keyboard.isDown(this.configs.fire) && Nakama.game.time.time > this.bullets.time){
-      this.bullets.push(new BulletController(
-        this.sprite.position.x,
-        this.sprite.position.y,
-        'BulletType1.png'
-      )
-      );
-      this.bullets.time = Nakama.game.time.time + this.bullets.BULLET_TIME;
+      this.fire();
+      this.bullets.time = Nakama.game.time.time + this.configs.BULLET_TIME;
     }
   }
+
+  fire(){}
 }
+
+
 
 // TODO ...
