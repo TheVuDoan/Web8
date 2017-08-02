@@ -39,6 +39,9 @@ var create = function(){
   Nakama.keyboard = Nakama.game.input.keyboard;
 
   Nakama.background = Nakama.game.add.sprite(0, -960, 'background');
+  Nakama.bulletGroup = Nakama.game.add.physicsGroup();
+  Nakama.playerGroup = Nakama.game.add.physicsGroup();
+
   Nakama.players = [];
   Nakama.players.push(
     new ShipController(
@@ -73,7 +76,7 @@ var create = function(){
 
 // update game state each frame
 var update = function(){
-  
+
   //moving background
   Nakama.background.position.y += 5;
   if (Nakama.background.position.y > 0) Nakama.background.position.y -= 960;

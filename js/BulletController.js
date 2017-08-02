@@ -1,17 +1,11 @@
 class BulletController {
   constructor(x, y, spriteName) {
-    this.sprite = Nakama.game.add.sprite(x, y, 'assets', spriteName);
+    this.sprite = Nakama.bulletGroup.create(x, y, 'assets', spriteName);
+    this.sprite.checkWorldBounds = true;
+    this.sprite.outOfBoundsKill = true;
+    this.sprite.anchor = new Phaser.Point(0.5, 0.5);
 
-    Nakama.game.physics.arcade.enable(this.sprite);
     this.BULLET_SPEED = 500;
-
-    this.sprite.update = this.update.bind(this);
-  }
-
-  update() {
     this.sprite.body.velocity.y = -this.BULLET_SPEED;
-    if (this.sprite.position.y < 0){
-      this.sprite.destroy();
-    }
   }
 }
