@@ -1,7 +1,14 @@
 var Nakama = {};
 Nakama.configs = {
   GAME_WIDTH: 640,
-  GAME_HEIGHT: 960
+  GAME_HEIGHT: 960,
+  PLAYER1_STARTX: 200,
+  PLAYER1_STARTY: 400,
+  PLAYER2_STARTX: 400,
+  PLAYER2_STARTY: 400,
+  ENEMY_STARTX: 100,
+  ENEMY_STARTY: 100,
+  ENEMY_HEALTH: 5
 };
 
 window.onload = function(){
@@ -45,9 +52,9 @@ var create = function(){
 
   Nakama.players = [];
   Nakama.players.push(
-    new ShipType1Controller(
-      200,
-      400,
+    new ShipType2Controller(
+      Nakama.configs.PLAYER1_STARTX,
+      Nakama.configs.PLAYER1_STARTY,
       '-Player',
       {
         up : Phaser.Keyboard.UP,
@@ -60,8 +67,8 @@ var create = function(){
   );
   Nakama.players.push(
     new ShipType1Controller(
-      400,
-      400,
+      Nakama.configs.PLAYER2_STARTX,
+      Nakama.configs.PLAYER2_STARTY,
       '-Partner',
       {
         up : Phaser.Keyboard.W,
@@ -74,11 +81,11 @@ var create = function(){
   );
   Nakama.enemies = [];
   Nakama.enemies.push(new EnemyController(
-    100,
-    100,
+    Nakama.configs.ENEMY_STARTX,
+    Nakama.configs.ENEMY_STARTY,
     'EnemyType1.png',
     {
-      health : 5
+      health : Nakama.configs.ENEMY_HEALTH
     }
   )
   );
@@ -104,4 +111,17 @@ var render = function(){}
 var onBulletHitEnemy = function(bulletSprite, enemySprite){
   bulletSprite.kill();
   enemySprite.damage(1);
+  if (enemySprite.alive == false) {
+    setTimeout(function() {
+      Nakama.enemies.push(new EnemyController(
+        Nakama.configs.ENEMY_STARTX,
+        Nakama.configs.ENEMY_STARTY,
+        'EnemyType1.png',
+        {
+          health: Nakama.configs.ENEMY_HEALTH
+        }
+      )
+    );
+    }, 1000);
+  }
 }

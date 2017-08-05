@@ -15,7 +15,16 @@ class ShipType2Controller extends ShipController{
     new BulletType2Controller(
       this.sprite.x,
       this.sprite.y,
-      {}
+      {
+        direction: 'left'
+      }
+    );
+    new BulletType2Controller(
+      this.sprite.x,
+      this.sprite.y,
+      {
+        direction: 'right'
+      }
     );
   }
 }
