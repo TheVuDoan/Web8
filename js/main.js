@@ -66,7 +66,7 @@ var create = function(){
     )
   );
   Nakama.players.push(
-    new ShipType1Controller(
+    new ShipType3Controller(
       Nakama.configs.PLAYER2_STARTX,
       Nakama.configs.PLAYER2_STARTY,
       '-Partner',
@@ -109,8 +109,17 @@ var update = function(){
 var render = function(){}
 
 var onBulletHitEnemy = function(bulletSprite, enemySprite){
-  bulletSprite.kill();
-  enemySprite.damage(1);
+  if (bulletSprite.frameName == 'BulletType1.png') {
+    bulletSprite.kill();
+    enemySprite.damage(1);
+  }
+  else if (bulletSprite.frameName == 'BulletType2.png') {
+    bulletSprite.kill();
+    enemySprite.damage(2);
+  }
+  else if (bulletSprite.frameName == 'BulletType3.png') {
+    enemySprite.kill();
+  }
   if (enemySprite.alive == false) {
     setTimeout(function() {
       Nakama.enemies.push(new EnemyController(
