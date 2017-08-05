@@ -1,6 +1,6 @@
 class BulletType3Controller extends BulletController {
   constructor(x, y, configs){
-    super(x, y-480, "BulletType3.png",configs);
+    super(x, y - Nakama.configs.GAME_HEIGHT/2, "BulletType3.png",configs);
     this.sprite.lifespan = 250;
     this.configs = configs;
     if (this.configs.direction == 'left') {
