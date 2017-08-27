@@ -1,0 +1,14 @@
+{
+  "name": "saas",
+  "version": "1.0.0",
+  "description": "abx",
+  "main": "app.js",
+  "scripts": {
+    "test": "123"
+  },
+  "author": "The Vu",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.4"
+  }
+}
