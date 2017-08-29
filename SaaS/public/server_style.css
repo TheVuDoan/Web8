@@ -1,0 +1,53 @@
+.menu{
+  background: #62B6CB;
+  color: #402E2A;
+  font-weight: bold;
+  font-size: 18px;
+  font-family: cursive;
+  text-align: center;
+}
+
+.menu span {
+  display: inline-block;
+  line-height: 60px;
+  width: 200px;
+  height: 60px;
+}
+
+.avatar {
+  display: block;
+  margin: 0 auto;
+  width: 250px;
+  height: 250px;
+  margin-top: 20px;
+  border-color: blue;
+  border-width: 2px;
+  border-style: ridge;
+  border-radius: 50%;
+}
+
+.about {
+  margin-left: 350px;
+  margin-bottom: 5px;
+  font-size: 18px;
+  font-family: cursive;
+}
+
+.homepage{
+  text-align: center;
+  font-family: cursive;
+  font-size: 25px;
+}
+
+.description{
+  text-align: center;
+  font-style: italic;
+  font-family: cursive;
+  color: blue;
+}
+
+span:hover {
+  background: #1B4965;
+  color: #CAE9FF;
+  cursor: pointer;
+}

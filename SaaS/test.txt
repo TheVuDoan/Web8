@@ -1,1 +1,2 @@
-Test write file
+Test write file.
+This is a weird solution :D
