@@ -1,0 +1,36 @@
+const express = require('express');
+const Router = express.Router();
+const fileController = require('./fileController.js');
+const fileout = 'question.txt';
+
+Router.post('/question', (req, res) => {
+  let listQuestion = fileController.getElements(fileout);
+  let question = {
+    id: listQuestion.length,
+    name: req.body.question
+  }
+  console.log(listQuestion.length);
+  let data;
+  if (listQuestion.length == 0) {
+    data = JSON.stringify(question);
+  } else {
+    data = ",\n" + JSON.stringify(question);
+  }
+  fileController.addToFile(fileout,data);
+  res.redirect(`/question/${question.id}`);
+});
+/*
+Router.post('/question/:id', (req, res) => {
+  listQuestion = fileController.getElements();
+  for (i=0;i<listQuestion.length;i++) {
+    if (req.params.id == listQuestion[i].id)
+    question = listQuestion[i];
+  }
+  res.render('getQuestion',
+  {
+    question : question
+  });
+  res.redirect(`/question/${req.params.id}`);
+});*/
+
+module.exports = Router;

@@ -46,6 +46,10 @@
   color: blue;
 }
 
+.question{
+  text-align: center;
+}
+
 span:hover {
   background: #1B4965;
   color: #CAE9FF;
