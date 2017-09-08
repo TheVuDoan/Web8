@@ -6,7 +6,6 @@ const askRouter = require('./askRouter');
 const apiRouter = require('./apiRouter');
 const questionRouter = require('./questionRouter');
 const fileController = require('./fileController.js');
-const filename = 'question.txt';
 
 let app = express();
 
@@ -28,14 +27,6 @@ app.get('/about',(req, res) => {
   res.render('about',
   {
     htmlRender : htmlRender
-  });
-});
-
-app.get('/myfile',(req, res) => {
-  let fileRender = fileController.readFile(filename);
-  res.render('myfile',
-  {
-    fileRender : fileRender
   });
 });
 

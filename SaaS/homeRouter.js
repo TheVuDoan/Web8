@@ -9,7 +9,8 @@ Router.get('/', (req, res) => {
   question = JSON.stringify(data.name);
   res.render('home',
   {
-    question : question
+    question : question,
+    link : `/api/question/${data.id}`
   });
 });
 

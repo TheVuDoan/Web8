@@ -14,13 +14,8 @@ const readFile = (filename) => {
 
 const getElements = () => {
   listQuestionString = `[${readFile('question.txt')}]`;
-  try {
-   listQuestion = JSON.parse(listQuestionString);
-   return listQuestion;
-  } catch (err) {
-   console.log(err);
-   return [];
-  }
+  listQuestion = JSON.parse(listQuestionString);
+  return listQuestion;
 }
 
 module.exports = {

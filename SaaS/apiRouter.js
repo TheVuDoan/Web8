@@ -7,7 +7,9 @@ Router.post('/question', (req, res) => {
   let listQuestion = fileController.getElements(fileout);
   let question = {
     id: listQuestion.length,
-    name: req.body.question
+    name: req.body.question,
+    yes: 0,
+    no: 0
   }
   console.log(listQuestion.length);
   let data;
@@ -19,18 +21,28 @@ Router.post('/question', (req, res) => {
   fileController.addToFile(fileout,data);
   res.redirect(`/question/${question.id}`);
 });
-/*
+
 Router.post('/question/:id', (req, res) => {
   listQuestion = fileController.getElements();
   for (i=0;i<listQuestion.length;i++) {
-    if (req.params.id == listQuestion[i].id)
-    question = listQuestion[i];
+    if (req.params.id == listQuestion[i].id) {
+      if (req.body.choice === 'yes') {
+        listQuestion[i].yes += 1;
+      } else {
+        listQuestion[i].no += 1;
+      }
+    }
   }
-  res.render('getQuestion',
-  {
-    question : question
-  });
+  let tmp = "";
+  for (i = 0; i < listQuestion.length; i++) {
+    if (i == 0) {
+      tmp += JSON.stringify(listQuestion[i]);
+    } else {
+      tmp += ",\n" + JSON.stringify(listQuestion[i]);
+    }
+  }
+  fileController.saveFile('question.txt', tmp);
   res.redirect(`/question/${req.params.id}`);
-});*/
+});
 
 module.exports = Router;

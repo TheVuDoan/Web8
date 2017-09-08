@@ -50,8 +50,29 @@
   text-align: center;
 }
 
+.yes{
+  margin-left: 600px;
+}
+
+.no{
+  margin-left: 50px;
+}
+
+.input-box{
+  margin-top: 50px;
+  margin-left: 550px;
+}
+
 span:hover {
   background: #1B4965;
   color: #CAE9FF;
+  cursor: pointer;
+}
+
+.yes:hover{
+  cursor: pointer;
+}
+
+.no:hover{
   cursor: pointer;
 }
