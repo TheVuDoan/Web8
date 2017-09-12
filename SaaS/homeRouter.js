@@ -4,14 +4,15 @@ const fileController = require('./fileController.js');
 const filein = 'question.txt';
 
 Router.get('/', (req, res) => {
-  let listQuestion = fileController.getElements();
-  data = listQuestion[Math.floor(Math.random() * listQuestion.length)];
-  question = JSON.stringify(data.name);
-  res.render('home',
-  {
-    question : question,
-    link : `/api/question/${data.id}`
-  });
+  // let listQuestion = fileController.getElements();
+  // data = listQuestion[Math.floor(Math.random() * listQuestion.length)];
+  // question = JSON.stringify(data.name);
+  // res.render('home',
+  // {
+  //   question : question,
+  //   link : `/api/question/${data.id}`
+  // });
+  res.redirect('/question');
 });
 
 module.exports = Router;

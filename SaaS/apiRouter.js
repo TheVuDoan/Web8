@@ -28,8 +28,10 @@ Router.post('/question/:id', (req, res) => {
     if (req.params.id == listQuestion[i].id) {
       if (req.body.choice === 'yes') {
         listQuestion[i].yes += 1;
-      } else {
+      } else if (req.body.choice === 'no'){
         listQuestion[i].no += 1;
+      } else if (req.body.choice === 'random'){
+        res.redirect('/question');
       }
     }
   }

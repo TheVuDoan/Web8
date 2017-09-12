@@ -10,24 +10,35 @@
   line-height: 30px;
   width: 100px;
   height: 30px;
+  position: relative;
 }
 
-.menu_vertical{
-  margin-top: 10px;
-  background: #FFFFFF;
+.menu nav{
+  display: none;
+  color: #402E2A;
+  position: absolute;
 }
 
-.menu_vertical span{
+nav span{
   display: block;
   line-height: 30px;
   background: #D5B0AC;
   width: 100px;
   height: 30px;
-  margin: 0 auto;
-  margin-bottom: 1px;
 }
 
-span:hover {
+.menu > span:hover > nav {
+  display: block;
+  top: 100%;
+}
+
+.menu span span:hover > nav {
+  display: block;
+  top: 0px;
+  left: 100%;
+}
+
+nav span:hover{
   background: #9CD08F;
   color: #FFFFFF;
   cursor: pointer;

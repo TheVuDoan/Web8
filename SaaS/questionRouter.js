@@ -4,15 +4,14 @@ const fileController = require('./fileController.js');
 const filein = 'question.txt';
 const filename = 'question.txt';
 
-Router.get('/',(req, res) => {
+Router.get('/', (req, res) => {
   let listQuestion = fileController.getElements();
-  let question = [];
-  for (i=0;i<listQuestion.length;i++) {
-    question[i] = JSON.stringify(listQuestion[i].name);
-  }
-  res.render('myfile',
+  data = listQuestion[Math.floor(Math.random() * listQuestion.length)];
+  question = JSON.stringify(data.name);
+  res.render('home',
   {
-    question : question
+    question : question,
+    link : `/api/question/${data.id}`
   });
 });
 

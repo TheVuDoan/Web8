@@ -1,5 +1,13 @@
-<h1 class="question">{{{question}}}</h1>
+<br>
+<h1 class="text-center question">{{{question}}}</h1>
+<br>
 <form method="post" action="{{{link}}}">
-  <input class="yes" type="submit" name="choice" value="yes">
-  <input class="no" type="submit" name="choice" value="no">
+  <div class="row">
+    <button class="btn btn-danger col-sm-1 col-xs-push-3" type="submit" name="choice" value="no"><i class="glyphicon glyphicon-thumbs-down"></i> No</button>
+    <button class="btn btn-primary col-sm-1 col-xs-push-7" type="submit" name="choice" value="yes"><i class="glyphicon glyphicon-thumbs-up"></i> Yes</button>
+  </div>
+  <br><br>
+  <div class="row">
+    <button class="btn btn-default col-sm-1 col-xs-push-5">Kết quả</button>
+    <button class="btn btn-default col-sm-1 col-xs-push-5" name="choice" value="random">Câu khác</button>
 </form>

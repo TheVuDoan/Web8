@@ -8,14 +8,31 @@
   <body>
     <nav class="menu">
       <span>Item 1</span>
-      <span>Item 2</span>
-      <span>Item 3</span>
-      <span>Item 4</span>
-    </nav>
-
-    <nav class="menu menu_vertical">
-      <span>Item 1</span>
-      <span>Item 2</span>
+      <span>
+        Item 2
+        <nav>
+          <span>Item 2.1</span>
+          <span>Item 2.2</span>
+          <span>Item 2.3</span>
+          <span>
+            Item 2.4
+            <nav>
+              <span>Item 2.4.1</span>
+              <span>Item 2.4.2</span>
+              <span>Item 2.4.3</span>
+              <span>
+                Item 2.4.4
+                <nav>
+                  <span>Item 2.4.1</span>
+                  <span>Item 2.4.2</span>
+                  <span>Item 2.4.3</span>
+                  <span>Item 2.4.4</span>
+                </nav>
+              </span>
+            </nav>
+          </span>
+        </nav>
+      </span>
       <span>Item 3</span>
       <span>Item 4</span>
     </nav>
