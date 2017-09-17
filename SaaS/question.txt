@@ -1,8 +1,8 @@
 {"id":0,"name":"Do you like it?","yes":7,"no":3},
-{"id":1,"name":"Do fish breathe?","yes":7,"no":2},
-{"id":2,"name":"Do you have a girlfriend?","yes":2,"no":3},
+{"id":1,"name":"Do fish breathe?","yes":8,"no":2},
+{"id":2,"name":"Do you have a girlfriend?","yes":3,"no":5},
 {"id":3,"name":"1+2=3?","yes":5,"no":0},
-{"id":4,"name":"Are you bored?","yes":6,"no":2},
-{"id":5,"name":"3*3=10?","yes":2,"no":1},
+{"id":4,"name":"Are you bored?","yes":7,"no":3},
+{"id":5,"name":"3*3=10?","yes":3,"no":3},
 {"id":6,"name":"Are you gay?","yes":0,"no":0},
-{"id":7,"name":"Is it me you looking for?","yes":1,"no":0}
+{"id":7,"name":"Is it me you looking for?","yes":2,"no":0}

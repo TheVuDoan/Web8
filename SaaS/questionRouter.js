@@ -11,6 +11,7 @@ Router.get('/', (req, res) => {
   res.render('home',
   {
     question : question,
+    questionView : "class='active'",
     link : `/api/question/${data.id}`
   });
 });
@@ -28,6 +29,7 @@ Router.get('/:id', (req, res) => {
   res.render('getQuestion',
   {
     question : question,
+    questionView : "class='active'",  
     yesNum : yesNum,
     noNum : noNum
   });

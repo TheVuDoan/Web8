@@ -30,7 +30,7 @@ app.get('/about',(req, res) => {
   });
 });
 
-//app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public'));
 
 app.listen(6969, () => {
   console.log('server is up');

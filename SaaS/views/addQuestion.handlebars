@@ -1,6 +1,11 @@
-<h1>Hãy hỏi một câu hỏi Đúng/Sai:</h1>
-<form method="post" action="/api/question">
-  <input class="form-control input-lg" placeholder="Enter a question" type="text" name="question" />
-  <br>
-  <input class="btn btn-primary" type="submit" />
-</form>
+<div class="container">
+  <h1>Hãy hỏi một câu hỏi Đúng/Sai:</h1>
+  <form method="post" action="/api/question">
+    <div class="form-group">
+      <textarea id="question-tf" class="form-control" rows="6" placeholder="Enter a question" type="text" name="question" maxlength="200"></textarea>
+      <p class="help-block small">Còn <span id="text_counter">200</span>/200 kí tự.</p>
+    </div>
+    <input class="btn btn-primary" type="submit" value="Gửi" />
+  </form>
+</div>
+<script src="/ask.js"></script>
