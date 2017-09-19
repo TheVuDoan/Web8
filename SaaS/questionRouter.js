@@ -1,37 +1,41 @@
 const express = require('express');
 const Router = express.Router();
 const fileController = require('./fileController.js');
-const filein = 'question.txt';
-const filename = 'question.txt';
+const questionModel = require('./questionSchema');
 
 Router.get('/', (req, res) => {
-  let listQuestion = fileController.getElements();
-  data = listQuestion[Math.floor(Math.random() * listQuestion.length)];
-  question = JSON.stringify(data.name);
-  res.render('home',
-  {
-    question : question,
-    questionView : "class='active'",
-    link : `/api/question/${data.id}`
+  let listQuestion,data,question;
+  fileController.getElements((err,listQuestion) =>{
+    if (err == null && listQuestion.length > 0) {
+      data = listQuestion[Math.floor(Math.random() * listQuestion.length)];
+      question = JSON.stringify(data.question);
+      res.render('home',
+      {
+        question : question,
+        questionView : "class='active'",
+        link : `/api/question/${data.subid}`
+      });
+    }
   });
 });
 
 Router.get('/:id', (req, res) => {
-  listQuestion = fileController.getElements();
-  let yesNum,noNum,question;
-  for (i=0;i<listQuestion.length;i++) {
-    if (req.params.id == listQuestion[i].id) {
-      question = JSON.stringify(listQuestion[i].name);
-      yesNum = listQuestion[i].yes;
-      noNum = listQuestion[i].no;
+  fileController.getElements((err,listQuestion) => {
+    let yesNum,noNum,question,name,i;
+    for (i=0;i<listQuestion.length;i++) {
+      if (req.params.id == listQuestion[i].subid) {
+        question = JSON.stringify(listQuestion[i].question);
+        yesNum = listQuestion[i].yes;
+        noNum = listQuestion[i].no;
+      }
     }
-  }
-  res.render('getQuestion',
-  {
-    question : question,
-    questionView : "class='active'",  
-    yesNum : yesNum,
-    noNum : noNum
+    res.render('getQuestion',
+    {
+      question : question,
+      questionView : "class='active'",
+      yesNum : yesNum,
+      noNum : noNum
+    });
   });
 });
 

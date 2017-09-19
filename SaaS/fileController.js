@@ -1,4 +1,5 @@
 const fs = require('fs');
+const questionModel = require('./questionSchema');
 
 const saveFile = (filename, data) => {
   fs.writeFileSync(filename,data);
@@ -12,10 +13,14 @@ const readFile = (filename) => {
   return fs.readFileSync(filename, {encoding: 'utf-8'});
 }
 
-const getElements = () => {
-  listQuestionString = `[${readFile('question.txt')}]`;
-  listQuestion = JSON.parse(listQuestionString);
-  return listQuestion;
+const getElements = (callback) => {
+  questionModel.find({}, (err, questions) => {
+    if (err) {
+      console.log(err);
+    } else {
+      callback(null, questions);
+    }
+  });
 }
 
 module.exports = {
