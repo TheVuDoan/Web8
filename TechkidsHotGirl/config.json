@@ -1,0 +1,4 @@
+{
+  "connectionString" : "mongodb://localhost/tkhotgirl",
+  "port" : 1010
+}
