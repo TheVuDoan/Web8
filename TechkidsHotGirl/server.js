@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const session = require('express-session');
+const cookie = require('cookie-parser');
 
 const config = require('./config.json');
 
@@ -11,6 +13,15 @@ var app = express();
 
 app.use(bodyParser.json({ extended : true}));
 app.use(bodyParser.urlencoded({ extended : true}));
+
+app.use(session({
+  secret: 'tkhotgirl',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true }
+}));
+
+app.use(cookie());
 
 app.use('/api/image', imageApi);
 app.use('/api/users', usersApi);

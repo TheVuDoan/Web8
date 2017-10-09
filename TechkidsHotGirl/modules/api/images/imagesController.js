@@ -25,6 +25,13 @@ Router.post('/', (req, res) => {
 //GET
 Router.get('/', (req, res) => {
   //get all image
+  imagesModel.getAllImage((err, doc) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.send(doc);
+    }
+  })
 });
 
 Router.get('/:id', (req, res) => {

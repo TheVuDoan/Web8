@@ -19,6 +19,16 @@ const createImage = (image, callback) => {
   })
 }
 
+const getAllImage = (callback) => {
+  imagesModel.find({}, (err, doc) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null,doc);
+    }
+  });
+}
+
 //Get image
 const getImageById = (imageId, callback) => {
   imagesModel.find({ 'content' : { $like : imageId } })
@@ -37,5 +47,6 @@ const getImageById = (imageId, callback) => {
 
 module.exports = {
   createImage,
+  getAllImage,
   getImageById
 }

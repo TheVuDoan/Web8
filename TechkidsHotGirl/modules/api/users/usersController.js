@@ -22,4 +22,15 @@ Router.post('/', (req, res) => {
   });
 });
 
+Router.post("/signIn", (req, res) => {
+  usersModel.loginUser(req.body, (err, doc) => {
+    if (err) {
+      res.send(err);
+    } else {
+      req.session.username = doc.username;
+      res.send(doc);
+    }
+  });
+});
+
 module.exports = Router;
